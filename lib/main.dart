@@ -1,5 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:app_lecturio/theme.dart';
+import 'package:provider/provider.dart'; // Import your theme.dart file
+import 'theme_provider.dart'; // Import the provider
 import 'package:flutter/material.dart';
 import 'home_page.dart'; // Import the Dart files for other pages
 import 'study_planner_page.dart';
@@ -8,16 +11,33 @@ import 'concept_pages.dart';
 import 'more_page.dart';
 import 'splash_screen.dart';
 
-void main() => runApp(const MyApp());
 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await themeProvider.loadSelectedColor(); // Load selected color from SharedPreferences
+
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => themeProvider, // Provide the ThemeProvider
+      child: MyApp(),
+    ),
+  );
+}
+
+
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+ Color selectedColor = Colors.blue;
+
+  MyApp({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blue, // Set your primary color
+        primaryColor:getSelectedColor(context), // Set your primary color
       ),
       home: const SplashScreenWidget(), // Use SplashScreenWidget as the initial route
     );
@@ -59,6 +79,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  
   int _currentIndex = 0;
 
   final List<IconData> _icons = [
@@ -67,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Icons.video_library,
     Icons.file_copy,
     Icons.more,
+    Icons.colorize,
   ];
 
   void _onTabTapped(int index) {
@@ -87,6 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
         return ConceptP_Page();
       case 4:
         return const MorePage();
+      case 5:
+        return const ThemePage();
       default:
         return HomePage(); // Default to the home page
     }
@@ -100,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
         selectedItemColor: Colors.grey, // Set the selected item color to grey
-        unselectedItemColor: Colors.blue, // Set the unselected item color to blue
+        unselectedItemColor: getSelectedColor(context), // Set the unselected item color to blue
         items: _icons.map((IconData icon) {
           return BottomNavigationBarItem(
             icon: Icon(

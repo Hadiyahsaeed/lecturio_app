@@ -1,20 +1,50 @@
+import 'package:app_lecturio/bookmatcher_screen.dart';
+import 'package:app_lecturio/notifications_screen.dart';
+import 'package:app_lecturio/search_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:app_lecturio/main.dart';
+import 'theme.dart'; // Import your theme.dart file
 
-void main() {
-  runApp(const MyApp());
-}
-
-
-
-// ignore: use_key_in_widget_constructors
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
+        backgroundColor: getSelectedColor(context),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.menu_book_outlined),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => BookmatcherScreen(selectedColor: getSelectedColor(context)), // Use getSelectedColor
+                ),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SearchScreen(), // Navigate to the second screen
+                ),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.notifications), // Add a new IconButton with a different icon
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NotificationsScreen(), // Navigate to the third screen
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,16 +60,18 @@ class HomePage extends StatelessWidget {
                       // Implement the action for the first button here
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.white, // Use Colors.white for non-selected background
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: const Icon(
-                      Icons.video_library,
-                      color: Colors.blue,
-                      size: 48.0,
-                    ),
+                    child: Builder(
+  builder: (context) => Icon(
+    Icons.video_library,
+    color: getSelectedColor(context), // Use getSelectedColor for icon color
+    size: 48.0,
+  ),
+),
                   ),
                   const SizedBox(height: 8),
                   const Text(
@@ -57,20 +89,22 @@ class HomePage extends StatelessWidget {
                       // Implement the action for the second button here
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.white, // Use Colors.white for non-selected background
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: const Icon(
-                      Icons.file_copy,
-                      color: Colors.blue,
-                      size: 48.0,
-                    ),
+                    child: Builder(
+  builder: (context) => Icon(
+    Icons.file_copy,
+    color: getSelectedColor(context), // Use getSelectedColor for icon color
+    size: 48.0,
+  ),
+),
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    ' Concept Pages',
+                    'Concept Pages',
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -84,16 +118,21 @@ class HomePage extends StatelessWidget {
                       // Implement the action for the third button here
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.white, // Use Colors.white for non-selected background
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: const Icon(
-                      Icons.question_mark_outlined,
-                      color: Colors.blue,
-                      size: 48.0,
-                    ),
+                    child: Builder(
+  builder: (context) => Text(
+    'Q',
+    style: TextStyle(
+      fontSize: 45, // Adjust the font size as needed
+      fontWeight: FontWeight.w100, // Adjust the font weight as needed
+      color: getSelectedColor(context), // Use getSelectedColor for text color
+    ),
+  ),
+),
                   ),
                   const SizedBox(height: 8),
                   const Text(
@@ -111,16 +150,18 @@ class HomePage extends StatelessWidget {
                       // Implement the action for the fourth button here
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.white, // Use Colors.white for non-selected background
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: const Icon(
-                      Icons.repeat,
-                      color: Colors.blue,
-                      size: 48.0,
-                    ),
+                    child: Builder(
+  builder: (context) => Icon(
+    Icons.repeat,
+    color: getSelectedColor(context), // Use getSelectedColor for icon color
+    size: 48.0,
+  ),
+),
                   ),
                   const SizedBox(height: 8),
                   const Text(
@@ -144,9 +185,9 @@ class HomePage extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.blue,
+                          color: getSelectedColor(context), // Use getSelectedColor for circle color
                         ),
                         child: const Padding(
                           padding: EdgeInsets.all(8.0),
@@ -189,7 +230,7 @@ class HomePage extends StatelessWidget {
                           // Implement the action for "OPEN" button here
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: getSelectedColor(context), // Use getSelectedColor for button color
                         ),
                         child: const Text('OPEN'),
                       ),
@@ -198,7 +239,7 @@ class HomePage extends StatelessWidget {
                           // Implement the action for "MORE QUESTIONS" button here
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: getSelectedColor(context), // Use getSelectedColor for button color
                         ),
                         child: const Text('MORE QUESTIONS'),
                       ),
@@ -208,67 +249,59 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 20), // Add space between cards
+          const SizedBox(height: 20),
+           // Add space between cards
           Card(
             elevation: 4.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              
               children: [
+      
                 ExpansionTile(
-                  title: const Text('Recommended videos'),
+                  title: const Text('Videos', 
+                    style: TextStyle(
+          color: Colors.black, // Use the specific color you want
+        ),
+                  ),
+                 
                   children: [
                     ListTile(
-                      leading: const Icon(
-                        Icons.medical_services,
-                        color: Colors.blue,
-                      ),
-                      title: const Text('Medical School Survival guide'),
-                      onTap: () {
-                        // Implement action for "Medical School Survival guide" item here
-                      },
-                    ),
+  leading: Builder(
+    builder: (context) => Icon(
+      Icons.medical_services,
+      color: getSelectedColor(context), // Use getSelectedColor for icon color
+    ),
+  ),
+  title: const Text('Medical School Survival Guide'),
+  onTap: () {
+    // Implement action for "Aging" item here
+  },
+),
+                   ListTile(
+  leading: Builder(
+    builder: (context) => Icon(
+      Icons.lightbulb_outline,
+      color: getSelectedColor(context), // Use getSelectedColor for icon color
+    ),
+  ),
+  title: const Text('Durable Learning'),
+  onTap: () {
+    // Implement action for "Aging" item here
+  },
+),
                     ListTile(
-                      leading: const Icon(
-                        Icons.lightbulb_outline,
-                        color: Colors.blue,
-                      ),
-                      title: const Text('Durable Learning'),
-                      onTap: () {
-                        // Implement action for "Durable Learning" item here
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(
-                        Icons.biotech,
-                        color: Colors.blue,
-                      ),
-                      title: const Text('Biochemistry: Basics'),
-                      onTap: () {
-                        // Implement action for "Biochemistry: Basics" item here
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(
-                        Icons.calculate_outlined,
-                        color: Colors.blue,
-                      ),
-                      title: const Text('Calculus'),
-                      onTap: () {
-                        // Implement action for "Calculus" item here
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(
-                        Icons.biotech,
-                        color: Colors.blue,
-                      ),
-                      title: const Text('Chemistry'),
-                      onTap: () {
-                        // Implement action for "Calculus" item here
-                      },
-                    ),
-                    
-                    
+  leading: Builder(
+    builder: (context) => Icon(
+      Icons.biotech,
+      color: getSelectedColor(context), // Use getSelectedColor for icon color
+    ),
+  ),
+  title: const Text('Biochemistry: Basics'),
+  onTap: () {
+    // Implement action for "Aging" item here
+  },
+),
                     // Add more items as needed
                   ],
                 ),

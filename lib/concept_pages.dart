@@ -1,3 +1,4 @@
+import 'package:app_lecturio/theme.dart';
 import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors, camel_case_types
@@ -7,6 +8,7 @@ class ConceptP_Page extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Concept Page'),
+        backgroundColor: getSelectedColor(context),
       ),
       body: const Padding(
         padding: EdgeInsets.all(16.0),

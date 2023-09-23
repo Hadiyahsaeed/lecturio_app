@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'theme.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -15,6 +16,7 @@ class SettingsScreen extends StatelessWidget {
           },
         ),
         title: const Text('Settings'),
+        backgroundColor: getSelectedColor(context),
       ),
       // Add your settings content here
       body: const Center(
