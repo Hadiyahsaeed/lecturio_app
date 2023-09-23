@@ -249,10 +249,20 @@ class HomePage extends StatelessWidget {
                     ),
                     ListTile(
                       leading: const Icon(
-                        Icons.biotech,
+                        Icons.calculate_outlined,
                         color: Colors.blue,
                       ),
                       title: const Text('Calculus'),
+                      onTap: () {
+                        // Implement action for "Calculus" item here
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.biotech,
+                        color: Colors.blue,
+                      ),
+                      title: const Text('Chemistry'),
                       onTap: () {
                         // Implement action for "Calculus" item here
                       },
