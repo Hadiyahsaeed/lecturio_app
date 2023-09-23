@@ -247,6 +247,16 @@ class HomePage extends StatelessWidget {
                         // Implement action for "Biochemistry: Basics" item here
                       },
                     ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.biotech,
+                        color: Colors.blue,
+                      ),
+                      title: const Text('Calculus'),
+                      onTap: () {
+                        // Implement action for "Calculus" item here
+                      },
+                    ),
                     
                     
                     // Add more items as needed
