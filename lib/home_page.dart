@@ -219,54 +219,35 @@ class HomePage extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: const Icon(
-                        Icons.directions_walk,
+                        Icons.medical_services,
                         color: Colors.blue,
                       ),
-                      title: const Text('Aging'),
+                      title: const Text('Medical School Survival guide'),
                       onTap: () {
-                        // Implement action for "Aging" item here
+                        // Implement action for "Medical School Survival guide" item here
                       },
                     ),
                     ListTile(
                       leading: const Icon(
-                        Icons.directions_walk,
+                        Icons.lightbulb_outline,
                         color: Colors.blue,
                       ),
-                      title: const Text('Aging'),
+                      title: const Text('Durable Learning'),
                       onTap: () {
-                        // Implement action for "Aging" item here
+                        // Implement action for "Durable Learning" item here
                       },
                     ),
                     ListTile(
                       leading: const Icon(
-                        Icons.directions_walk,
+                        Icons.biotech,
                         color: Colors.blue,
                       ),
-                      title: const Text('Aging'),
+                      title: const Text('Biochemistry: Basics'),
                       onTap: () {
-                        // Implement action for "Aging" item here
+                        // Implement action for "Biochemistry: Basics" item here
                       },
                     ),
-                    ListTile(
-                      leading: const Icon(
-                        Icons.directions_walk,
-                        color: Colors.blue,
-                      ),
-                      title: const Text('Aging'),
-                      onTap: () {
-                        // Implement action for "Aging" item here
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(
-                        Icons.directions_walk,
-                        color: Colors.blue,
-                      ),
-                      title: const Text('Aging'),
-                      onTap: () {
-                        // Implement action for "Aging" item here
-                      },
-                    ),
+                    
                     
                     // Add more items as needed
                   ],
