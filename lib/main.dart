@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<IconData> _icons = [
     Icons.home,
     Icons.book,
-    Icons.play_arrow,
+    Icons.video_library,
     Icons.file_copy,
     Icons.more,
   ];

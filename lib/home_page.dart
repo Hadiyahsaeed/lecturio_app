@@ -36,14 +36,14 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     child: const Icon(
-                      Icons.search,
+                      Icons.video_library,
                       color: Colors.blue,
                       size: 48.0,
                     ),
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Search',
+                    'Videos',
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -63,14 +63,14 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     child: const Icon(
-                      Icons.play_arrow,
+                      Icons.file_copy,
                       color: Colors.blue,
                       size: 48.0,
                     ),
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Play',
+                    ' Concept Pages',
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -90,14 +90,14 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     child: const Icon(
-                      Icons.star,
+                      Icons.question_mark_outlined,
                       color: Colors.blue,
                       size: 48.0,
                     ),
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Favorite',
+                    'Q bank',
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -117,14 +117,14 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     child: const Icon(
-                      Icons.settings,
+                      Icons.repeat,
                       color: Colors.blue,
                       size: 48.0,
                     ),
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Settings',
+                    'Spaced repetition',
                     style: TextStyle(
                       color: Colors.black,
                     ),
