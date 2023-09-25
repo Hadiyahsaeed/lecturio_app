@@ -1,6 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:app_lecturio/theme.dart';
+import 'theme.dart';
 import 'package:provider/provider.dart'; // Import your theme.dart file
 import 'theme_provider.dart'; // Import the provider
 import 'package:flutter/material.dart';
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return HomePage();
+        return const HomePage();
       case 1:
         return const StudyP_Page();
       case 2:
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 5:
         return const ThemePage();
       default:
-        return HomePage(); // Default to the home page
+        return const HomePage(); // Default to the home page
     }
   }
 
@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
-        selectedItemColor: Colors.grey, // Set the selected item color to grey
+        selectedItemColor: const Color.fromARGB(255, 117, 115, 115), // Set the selected item color to grey
         unselectedItemColor: getSelectedColor(context), // Set the unselected item color to blue
         items: _icons.map((IconData icon) {
           return BottomNavigationBarItem(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:app_lecturio/settings_screen.dart';
+import 'settings_screen.dart';
 import 'theme.dart'; // Import your theme.dart file
 
 class MorePage extends StatelessWidget {
@@ -15,7 +15,7 @@ class MorePage extends StatelessWidget {
       Text(
         'Lecturi',
         style: TextStyle(
-         color: Colors.black, // Use getSelectedColor for text color
+         color: Colors.white, // Use getSelectedColor for text color
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
         ),

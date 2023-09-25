@@ -1,6 +1,7 @@
-import 'package:app_lecturio/bookmatcher_screen.dart';
-import 'package:app_lecturio/notifications_screen.dart';
-import 'package:app_lecturio/search_screen.dart';
+import 'bookmatcher_screen.dart';
+import 'notifications_screen.dart';
+import 'search_screen.dart';
+import 'settings_popup.dart';
 import 'package:flutter/material.dart';
 import 'theme.dart'; // Import your theme.dart file
 
@@ -264,6 +265,15 @@ class HomePage extends StatelessWidget {
           color: Colors.black, // Use the specific color you want
         ),
                   ),
+                  trailing: IconButton(
+    icon: const Icon(Icons.settings),
+    onPressed: () {
+      showDialog(
+        context: context,
+        builder: (context) => const SettingsPopup(), // Show the settings popup
+      );
+    },
+  ),
                  
                   children: [
                     ListTile(

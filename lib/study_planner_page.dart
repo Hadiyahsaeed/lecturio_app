@@ -1,4 +1,4 @@
-import 'package:app_lecturio/theme.dart';
+import 'theme.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types

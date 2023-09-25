@@ -1,4 +1,7 @@
-import 'package:flutter/material.dart';// Import your theme.dart file
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart'; // Import the provider library.
+import 'theme_provider.dart';
+// Import your theme.dart file
 
 class BookmatcherScreen extends StatelessWidget {
   final Color? selectedColor; // Make selectedColor nullable
@@ -7,12 +10,12 @@ class BookmatcherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = selectedColor ?? Colors.blue; // Use a default color (e.g., Colors.blue) if selectedColor is null
+     Color selectedColor = Provider.of<ThemeProvider>(context).selectedColor;// Use a default color (e.g., Colors.blue) if selectedColor is null
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('BookMatcher'),
-        backgroundColor: backgroundColor,
+        backgroundColor: selectedColor,
       ),
       body: const Center(
         child: Text('BOOKMATCHER'),
